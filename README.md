@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://store-images.s-microsoft.com/image/apps.16561.9007199266242800.c2f92b79-2545-460a-8a6f-93324399d636.ba6c52de-76af-4b98-b269-83b98e856064" width="300"></h1>
+<h1 align="center"><img src="https://store-images.s-microsoft.com/image/apps.16561.9007199266242800.c2f92b79-2545-460a-8a6f-93324399d636.ba6c52de-76af-4b98-b269-83b98e856064" width="800"></h1>
 
 <p align="center">
     Musixmatch api wrapper written in Kotlin <br><br>
