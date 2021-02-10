@@ -6,6 +6,7 @@ import kotlinx.coroutines.*
 import retrofit2.*
 import retrofit2.converter.jackson.JacksonConverterFactory
 import stanic.musixmatchwrapper.track.TrackService
+import stanic.musixmatchwrapper.track.model.Lyrics
 import stanic.musixmatchwrapper.track.model.Track
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -48,6 +49,16 @@ class MusixMatch(
         return runBlocking {
             val result = response.await()
             result?.message?.body?.track?.get()
+        }
+    }
+
+    fun getLyrics(trackId: Int): Lyrics? {
+        val trackService = service.create(TrackService::class.java)
+        val response = GlobalScope.async { execute(trackService.getLyrics(apiKey, trackId)) }
+
+        return runBlocking {
+            val result = response.await()
+            result?.message?.body?.lyrics?.get()
         }
     }
 

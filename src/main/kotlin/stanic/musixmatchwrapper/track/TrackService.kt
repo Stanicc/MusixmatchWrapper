@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 import stanic.musixmatchwrapper.track.get.TrackGetResult
+import stanic.musixmatchwrapper.track.lyrics.LyricsGetResult
 import stanic.musixmatchwrapper.track.search.TrackSearchResult
 import stanic.musixmatchwrapper.track.search.TrackSearchResultMessage
 
@@ -25,5 +26,11 @@ interface TrackService {
         @Query("apikey") apiKey: String,
         @Query("commontrack_id") commonTrackId: Int
     ) : Call<TrackGetResult>
+
+    @GET("track.lyrics.get")
+    fun getLyrics(
+        @Query("apikey") apiKey: String,
+        @Query("track_id") trackId: Int
+    ) : Call<LyricsGetResult>
 
 }
