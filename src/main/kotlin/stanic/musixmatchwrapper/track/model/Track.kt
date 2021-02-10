@@ -1,11 +1,12 @@
-package stanic.musixmatchwrapper.track.search.model
+package stanic.musixmatchwrapper.track.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
-@JsonIgnoreProperties("album_coverart_350x350", "album_coverart_500x500", "first_release_date", "track_isrc", "track_soundcloud_id", "album_coverart_800x800", "album_coverart_100x100", "has_subtitles", "subtitle_id", "has_richsync", "track_spotify_id", "artist_mbid", "track_xboxmusic_id", "track_length", "track_mbid", "commontrack_id", "num_favourite", "secondary_genres")
+@JsonIgnoreProperties("album_coverart_350x350", "album_coverart_500x500", "first_release_date", "track_isrc", "track_soundcloud_id", "album_coverart_800x800", "album_coverart_100x100", "has_subtitles", "subtitle_id", "has_richsync", "track_spotify_id", "artist_mbid", "track_xboxmusic_id", "track_length", "track_mbid", "num_favourite", "secondary_genres")
 class TrackBase(
     @JsonProperty("track_id") val trackId: Int,
+    @JsonProperty("commontrack_id") val commonTrackId: Int,
     @JsonProperty("track_name") val trackName: String,
     @JsonProperty("track_name_translation_list") val nameTranslationList: List<String>,
     @JsonProperty("track_rating") val rating: Int,
@@ -23,12 +24,13 @@ class TrackBase(
     @JsonProperty("primary_genres") val primaryGenres: MusicGenreList
 ) {
 
-    fun get() = Track(trackId, trackName, nameTranslationList, rating, instrumental == 1, explicit == 1, hasLyrics == 1, albumId, albumName, artistId, artistName, trackShareUrl, trackEditUrl, restricted == 1, updatedTime, primaryGenres)
+    fun get() = Track(trackId, commonTrackId, trackName, nameTranslationList, rating, instrumental == 1, explicit == 1, hasLyrics == 1, albumId, albumName, artistId, artistName, trackShareUrl, trackEditUrl, restricted == 1, updatedTime, primaryGenres)
 
 }
 
 class Track(
     val trackId: Int,
+    val commonTrackId: Int,
     val trackName: String,
     val nameTranslationList: List<String>,
     val rating: Int,

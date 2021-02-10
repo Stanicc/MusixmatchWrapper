@@ -1,4 +1,4 @@
-package stanic.musixmatchwrapper.track.search.model
+package stanic.musixmatchwrapper.track.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
